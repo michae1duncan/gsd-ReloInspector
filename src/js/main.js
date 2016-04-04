@@ -244,16 +244,6 @@ require([
       updateFeature.attributes[evt.fieldName] = evt.fieldValue;
     });
 
-    // attInspector.on("next", function(evt) {
-    //   updateFeature = evt.feature;
-    //   console.log("Next " + updateFeature.attributes.objectid);
-    // });
-
-    // attInspector.on("delete", function(evt){
-    //   evt.feature.getLayer().applyEdits(null,null,[feature]);
-    //   map.infoWindow.hide();
-    // });
-
     map.infoWindow.setContent(attInspector.domNode);
     map.infoWindow.resize(345, 500);
   }
