@@ -36,7 +36,6 @@ require([
 
   map = new Map("mapDiv", {
     basemap: "satellite",
-    //center: [-112.003373, 40.650238],
     extent: initExtent,
     zoom: 12,
     logo: false
