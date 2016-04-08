@@ -9,7 +9,6 @@ require([
   "esri/symbols/SimpleLineSymbol",
   "esri/symbols/SimpleFillSymbol",
   "esri/Color",
-  "esri/layers/ArcGISDynamicMapServiceLayer",
   "esri/config",
   "esri/tasks/query",
   "esri/dijit/Bookmarks",
@@ -23,13 +22,12 @@ require([
 ], function(
   Map, LocateButton, FeatureLayer, AttributeInspector,
   SimpleLineSymbol, SimpleFillSymbol, Color,
-  ArcGISDynamicMapServiceLayer, esriConfig,
-  Query, Bookmarks,
+  esriConfig, Query, Bookmarks,
   parser, domConstruct, Button, DropDownButton
 ) {
   parser.parse();
 
-  // refer to "Using the Proxy Page" for more information:  https://developers.arcgis.com/en/javascript/jshelp/ags_proxy.html
+  
   esriConfig.defaults.io.proxyUrl = "/proxy";
 
   var initExtent = new esri.geometry.Extent({"xmin":-12485775,"ymin":4944852,"xmax":-12433262,"ymax":4983300,"spatialReference":{"wkid":102100}});
@@ -46,13 +44,13 @@ require([
   geoLocate = new LocateButton({map: map}, "LocateButton");
   geoLocate.startup();
 
-  var reloLayer = new ArcGISDynamicMapServiceLayer("http://www2.graniteschools.org/ArcGIS/rest/services/Relos/MapServer");
-  reloLayer.setDisableClientCaching(true);
-  map.addLayer(reloLayer);
+  var doorLayer = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/0");
+  var reloLayer = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/1");
+  map.addLayers([reloLayer, doorLayer]);
 
-  var reloLayerFL = new FeatureLayer("http://www2.graniteschools.org/ArcGIS/rest/services/Relos/FeatureServer/1", {
+  var reloLayerFL = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/1", {
     mode: FeatureLayer.MODE_SELECTION,
-    outFields: ["Relo_Num", "Sch_Name", "Asset_Num", "Serial_Num", "Description", "Manufacturer", "Relo_Use", "Year_Built", "Size", "Sq_Feet", "Plumbed", "Door_Config", "Notes"]
+    outFields: ["Relo_Num", "Sch_Name", "Description", "Manufacturer", "Year_Built", "Size", "Sq_Feet", "Notes"]
   });
 
   var el_list = [
@@ -172,7 +170,7 @@ require([
     reloLayer.refresh();
   });
 
-  map.addLayers([reloLayerFL]);
+  map.addLayer(reloLayerFL);
 
   function initSelectToolbar(evt) {
     var reloLayerFL = evt.layers[0].layer;
@@ -211,16 +209,11 @@ require([
       'fieldInfos': [
         {'fieldName': 'Relo_Num', 'isEditable':true,'label':'Relo Number:', 'customField': numTextBox},
         {'fieldName': 'Sch_Name', 'isEditable':false,'label':'School:'},
-        {'fieldName': 'Asset_Num', 'isEditable':false,'label':'Asset Number:'},
-        {'fieldName': 'Serial_Num', 'isEditable':false,'label':'Serial Number:'},
         {'fieldName': 'Description', 'isEditable':true,'label':'Description:'},
         {'fieldName': 'Manufacturer', 'isEditable':false,'label':'Manufacturer:'},
-        {'fieldName': 'Relo_Use', 'isEditable':true,'label':'Use:'},
         {'fieldName': 'Year_Built', 'isEditable':false,'label':'Year Built:'},
         {'fieldName': 'Size', 'isEditable':true,'label':'Size:'},
         {'fieldName': 'Sq_Feet', 'isEditable':false,'label':'Square Feet:'},
-        {'fieldName': 'Plumbed', 'isEditable':true,'label':'Plumbed?:'},
-        {'fieldName': 'Door_Config', 'isEditable':true,'label':'Door Config:'},
         {'fieldName': 'Notes', 'isEditable':true,'label':'Notes:', 'stringFieldOption': 'textarea'}
       ]
     }];
