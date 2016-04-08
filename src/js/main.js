@@ -50,7 +50,7 @@ require([
 
   var reloLayerFL = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/1", {
     mode: FeatureLayer.MODE_SELECTION,
-    outFields: ["Relo_Num", "Sch_Name", "Description", "Manufacturer", "Year_Built", "Size", "Sq_Feet", "Notes"]
+    outFields: ["Sch_Name", "Description", "Manufacturer", "Year_Built", "Size", "Sq_Feet", "Notes", "Label"]
   });
 
   var el_list = [
@@ -207,8 +207,8 @@ require([
       'isEditable': true,
       'showDeleteButton': false,
       'fieldInfos': [
-        {'fieldName': 'Relo_Num', 'isEditable':true,'label':'Relo Number:', 'customField': numTextBox},
-        {'fieldName': 'Sch_Name', 'isEditable':false,'label':'School:'},
+        {'fieldName': 'Label', 'isEditable':true,'label':'Relo Number:', 'customField': numTextBox},
+        {'fieldName': 'Sch_Name', 'isEditable':true,'label':'School:'},
         {'fieldName': 'Description', 'isEditable':true,'label':'Description:'},
         {'fieldName': 'Manufacturer', 'isEditable':false,'label':'Manufacturer:'},
         {'fieldName': 'Year_Built', 'isEditable':false,'label':'Year Built:'},
@@ -237,6 +237,6 @@ require([
     });
 
     map.infoWindow.setContent(attInspector.domNode);
-    map.infoWindow.resize(345, 500);
+    map.infoWindow.resize(345, 400);
   }
 });
