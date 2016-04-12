@@ -27,7 +27,6 @@ require([
 ) {
   parser.parse();
 
-  
   esriConfig.defaults.io.proxyUrl = "/proxy";
 
   var initExtent = new esri.geometry.Extent({"xmin":-12485775,"ymin":4944852,"xmax":-12433262,"ymax":4983300,"spatialReference":{"wkid":102100}});
@@ -50,7 +49,7 @@ require([
 
   var reloLayerFL = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/1", {
     mode: FeatureLayer.MODE_SELECTION,
-    outFields: ["Sch_Name", "Description", "Manufacturer", "Year_Built", "Size", "Sq_Feet", "Notes", "Label"]
+    outFields: ["Sch_Name", "Description", "Manufacturer", "Year_Built", "Sq_Feet", "Size", "Notes"]
   });
 
   var el_list = [
@@ -170,7 +169,7 @@ require([
     reloLayer.refresh();
   });
 
-  map.addLayer(reloLayerFL);
+  map.addLayers([reloLayerFL]);
 
   function initSelectToolbar(evt) {
     var reloLayerFL = evt.layers[0].layer;
@@ -194,20 +193,13 @@ require([
       reloLayerFL.clearSelection();
     });
 
-    var props = {
-      name: "numberTextBox",
-      class: "atiField",
-      constraints: {pattern: "#"}
-    };
-    var numTextBox = new dijit.form.NumberTextBox(props);
-
     var layerInfos = [{
       'featureLayer': reloLayerFL,
       'showAttachments': false,
       'isEditable': true,
       'showDeleteButton': false,
       'fieldInfos': [
-        {'fieldName': 'Label', 'isEditable':true,'label':'Relo Number:', 'customField': numTextBox},
+        //{'fieldName': 'Label', 'isEditable':true,'label':'Relo Number:'},
         {'fieldName': 'Sch_Name', 'isEditable':true,'label':'School:'},
         {'fieldName': 'Description', 'isEditable':true,'label':'Description:'},
         {'fieldName': 'Manufacturer', 'isEditable':false,'label':'Manufacturer:'},
@@ -237,6 +229,6 @@ require([
     });
 
     map.infoWindow.setContent(attInspector.domNode);
-    map.infoWindow.resize(345, 400);
+    map.infoWindow.resize(345, 350);
   }
 });

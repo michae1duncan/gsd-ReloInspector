@@ -58,7 +58,7 @@ body {
 .dj_ie .infowindow .window .top .right .user .content { position: relative; }
 .dj_ie .simpleInfoWindow .content {position: relative;}
 
-.esriAttributeInspector {height:398px;}
+.esriAttributeInspector {height:310px;}
 .esriAttributeInspector .atiLayerName {display:none;}
 
 .esriAttributeInspector .atiLabel {
@@ -78,7 +78,6 @@ body {
 }
 
 .dropdown-menu {
-  /*max-height: 440px;*/
   max-width: 170px;
   overflow-y: auto;
   overflow-x: hidden;
