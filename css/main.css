@@ -1,0 +1,181 @@
+html, body {
+  height: 100%; width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  padding-top: 50px;
+}
+
+#LocateButton {
+  position: absolute;
+  top: 150px;
+  left: 21px;
+  z-index: 40;
+}
+
+#mapDiv{
+  margin: 0;
+  padding:0;
+  height: 100%;
+}
+
+#detailPane{
+  height:20px;
+  color:#570026;
+  font-size:12pt;
+  font-weight:600;
+  overflow:hidden;
+}
+
+.esriPopup .titlePane {
+  font-size: 16px;
+  color: #ebebeb;
+  background-color: #002d61;
+  padding: 5px;
+  padding-left: 10px;
+
+}
+
+.esriPopup .titleButton {
+  background-size: 99px 54px;
+}
+
+.esriPopup .titleButton.close {
+  width: 18px;
+  height: 25px;
+  right: 10px;
+  top: 3px;
+  opacity: .9;
+}
+
+.esriPopup .titleButton.maximize {
+  display: none;
+}
+
+.dj_ie .infowindow .window .top .right .user .content { position: relative; }
+.dj_ie .simpleInfoWindow .content {position: relative;}
+
+.esriAttributeInspector {height:250px;}
+.esriAttributeInspector .atiLayerName {display:none;}
+
+.esriAttributeInspector .atiLabel {
+  font-size: 14px;
+}
+
+.esriAttributeInspector .atiField {
+  font-size: 14px;
+}
+
+.claro .dijitButtonText {
+  font-size: 16px;
+}
+
+.dijitReset.dijitInline .dijitButtonNode{
+    padding: .6em;
+}
+
+.dropdown-menu {
+  max-width: 170px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.esriBookmarkLabel {
+  font-size: 15px;
+  color: #ebebeb;
+  background-color: #002d61;
+}
+
+.navbar-nav>li>.dropdown-menu {
+  background-color: #002d61;
+  border-color: #002d61;
+}
+
+.esriBookmarkItem {
+  height: 24px;
+}
+
+.esriBookmarkItem:hover {
+  background-color: #002d61;
+}
+
+.esriBookmarkLabel:hover {
+  color: #5997c2;
+}
+
+.navbar .navbar-brand{
+    padding: 0 12px;
+    font-size: 22px;
+    line-height: 50px;
+    height: 50px;
+}
+.navbar .navbar-nav > li > a{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  line-height: 50px;
+  font-size: 16px;
+}
+
+.navbar-default {
+  background-color: #002d61;
+  border-color: #002d61;
+}
+.navbar-default .navbar-brand {
+  color: #ebebeb;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #5997c2;
+}
+.navbar-default .navbar-text {
+  color: #ebebeb;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ebebeb;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #5997c2;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #5997c2;
+  background-color: #002d61;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #5997c2;
+  background-color: #002d61;
+}
+.navbar-default .navbar-toggle {
+  border-color: #002d61;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #002d61;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ebebeb;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ebebeb;
+}
+
+.navbar-default .navbar-link {
+  color: #ebebeb;
+}
+.navbar-default .navbar-link:hover {
+  color: #5997c2;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ebebeb;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #5997c2;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #5997c2;
+    background-color: #002d61;
+  }
+}
