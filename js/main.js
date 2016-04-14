@@ -219,6 +219,7 @@ require([
     domConstruct.place(saveButton.domNode, attInspector.deleteBtn.domNode, "after");
 
     saveButton.on("click", function(){
+      console.log("Save button pushed");
       updateFeature.getLayer().applyEdits(null, [updateFeature], null);
       map.infoWindow.hide();
     });
@@ -226,6 +227,10 @@ require([
     attInspector.on("attribute-change", function(evt) {
       //store the updates to apply when the save button is clicked
       updateFeature.attributes[evt.fieldName] = evt.fieldValue;
+      console.log(evt.fieldValue);
+      //var feature = evt.feature;
+      //feature.attributes[evt.fieldName] = evt.newFieldValue;
+      //feature.getLayer().applyEdits(null, [feature], null);
     });
 
     map.infoWindow.setContent(attInspector.domNode);
