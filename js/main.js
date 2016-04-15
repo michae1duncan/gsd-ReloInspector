@@ -22,8 +22,8 @@ require([
 ], function(
   Map, LocateButton, FeatureLayer, AttributeInspector,
   SimpleLineSymbol, SimpleFillSymbol, Color,
-  esriConfig, Query, Bookmarks,
-  parser, domConstruct, Button, DropDownButton
+  esriConfig, Query, Bookmarks, parser,
+  domConstruct, Button, DropDownButton
 ) {
   parser.parse();
 
@@ -49,6 +49,7 @@ require([
 
   var reloLayerFL = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/1", {
     mode: FeatureLayer.MODE_SELECTION,
+    id: "Relo_Num",
     outFields: ["Relo_Num", "Sch_Name", "Description", "Manufacturer", "Year_Built", "Sq_Feet", "Size", "Notes"]
   });
 
@@ -170,6 +171,7 @@ require([
   });
 
   map.addLayers([reloLayerFL]);
+  //map.addLayer(reloLayerFL);
 
   function initSelectToolbar(evt) {
     var reloLayerFL = evt.layers[0].layer;
