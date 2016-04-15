@@ -33,7 +33,7 @@ body {
 .esriPopup .titlePane {
   font-size: 16px;
   color: #ebebeb;
-  background-color: #002d61;
+  background-color: #4E5D6C;
   padding: 5px;
   padding-left: 10px;
 
@@ -89,12 +89,12 @@ body {
 .esriBookmarkLabel {
   font-size: 15px;
   color: #ebebeb;
-  background-color: #002d61;
+  background-color: #4E5D6C;
 }
 
 .navbar-nav>li>.dropdown-menu {
-  background-color: #002d61;
-  border-color: #002d61;
+  background-color: #4E5D6C;
+  border-color: #4E5D6C;
 }
 
 .esriBookmarkItem {
@@ -102,7 +102,7 @@ body {
 }
 
 .esriBookmarkItem:hover {
-  background-color: #002d61;
+  background-color: #4E5D6C;
 }
 
 .esriBookmarkLabel:hover {
@@ -123,8 +123,8 @@ body {
 }
 
 .navbar-default {
-  background-color: #002d61;
-  border-color: #002d61;
+  background-color: #4E5D6C;
+  border-color: #4E5D6C;
 }
 .navbar-default .navbar-brand {
   color: #ebebeb;
@@ -143,17 +143,17 @@ body {
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: #5997c2;
-  background-color: #002d61;
+  background-color: #4E5D6C;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   color: #5997c2;
-  background-color: #002d61;
+  background-color: #4E5D6C;
 }
 .navbar-default .navbar-toggle {
-  border-color: #002d61;
+  border-color: #4E5D6C;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #002d61;
+  background-color: #4E5D6C;
 }
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #ebebeb;
@@ -179,6 +179,6 @@ body {
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #5997c2;
-    background-color: #002d61;
+    background-color: #4E5D6C;
   }
 }

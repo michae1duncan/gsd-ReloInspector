@@ -171,7 +171,6 @@ require([
   });
 
   map.addLayers([reloLayerFL]);
-  //map.addLayer(reloLayerFL);
 
   function initSelectToolbar(evt) {
     var reloLayerFL = evt.layers[0].layer;
