@@ -58,7 +58,7 @@ body {
 .dj_ie .infowindow .window .top .right .user .content { position: relative; }
 .dj_ie .simpleInfoWindow .content {position: relative;}
 
-.esriAttributeInspector {height:250px;}
+.esriAttributeInspector {height:270px;}
 .esriAttributeInspector .atiLayerName {display:none;}
 
 .esriAttributeInspector .atiLabel {

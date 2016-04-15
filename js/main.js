@@ -49,7 +49,7 @@ require([
 
   var reloLayerFL = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/1", {
     mode: FeatureLayer.MODE_SELECTION,
-    outFields: ["Sch_Name", "Description", "Manufacturer", "Year_Built", "Sq_Feet", "Size", "Notes"]
+    outFields: ["Relo_Num", "Sch_Name", "Description", "Manufacturer", "Year_Built", "Sq_Feet", "Size", "Notes"]
   });
 
   var el_list = [
@@ -193,13 +193,20 @@ require([
       reloLayerFL.clearSelection();
     });
 
+    var props = {
+      name: "numberTextBox",
+      class: "atiField",
+      constraints: {pattern: "#"}
+    };
+    var numTextBox = new dijit.form.NumberTextBox(props);
+
     var layerInfos = [{
       'featureLayer': reloLayerFL,
       'showAttachments': false,
       'isEditable': true,
       'showDeleteButton': false,
       'fieldInfos': [
-        //{'fieldName': 'Label', 'isEditable':true,'label':'Relo Number:'},
+        {'fieldName': 'Relo_Num', 'isEditable':true,'label':'Relo Number:', 'customField': numTextBox},
         {'fieldName': 'Sch_Name', 'isEditable':true,'label':'School:'},
         {'fieldName': 'Description', 'isEditable':true,'label':'Description:'},
         {'fieldName': 'Manufacturer', 'isEditable':false,'label':'Manufacturer:'},
@@ -219,7 +226,6 @@ require([
     domConstruct.place(saveButton.domNode, attInspector.deleteBtn.domNode, "after");
 
     saveButton.on("click", function(){
-      console.log("Save button pushed");
       updateFeature.getLayer().applyEdits(null, [updateFeature], null);
       map.infoWindow.hide();
     });
@@ -227,10 +233,6 @@ require([
     attInspector.on("attribute-change", function(evt) {
       //store the updates to apply when the save button is clicked
       updateFeature.attributes[evt.fieldName] = evt.fieldValue;
-      console.log(evt.fieldValue);
-      //var feature = evt.feature;
-      //feature.attributes[evt.fieldName] = evt.newFieldValue;
-      //feature.getLayer().applyEdits(null, [feature], null);
     });
 
     map.infoWindow.setContent(attInspector.domNode);
