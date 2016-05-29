@@ -9,6 +9,7 @@ require([
   "esri/symbols/SimpleLineSymbol",
   "esri/symbols/SimpleFillSymbol",
   "esri/Color",
+  "esri/layers/ArcGISDynamicMapServiceLayer",
   "esri/config",
   "esri/tasks/query",
   "esri/dijit/Bookmarks",
@@ -22,7 +23,8 @@ require([
 ], function(
   Map, LocateButton, FeatureLayer, AttributeInspector,
   SimpleLineSymbol, SimpleFillSymbol, Color,
-  esriConfig, Query, Bookmarks, parser,
+  ArcGISDynamicMapServiceLayer, esriConfig,
+  Query, Bookmarks, parser,
   domConstruct, Button, DropDownButton
 ) {
   parser.parse();
@@ -43,11 +45,15 @@ require([
   geoLocate = new LocateButton({map: map}, "LocateButton");
   geoLocate.startup();
 
-  var doorLayer = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/0");
-  var reloLayer = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/1");
-  map.addLayers([reloLayer, doorLayer]);
+  // var doorLayer = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/0");
+  // var reloLayer = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/1");
+  // map.addLayers([reloLayer, doorLayer]);
 
-  var reloLayerFL = new FeatureLayer("http://services6.arcgis.com/GdLVqDxhedDYaLfo/ArcGIS/rest/services/Relos/FeatureServer/1", {
+  var reloLayer = new ArcGISDynamicMapServiceLayer("http://www2.graniteschools.org/ArcGIS/rest/services/Relos/MapServer");
+  reloLayer.setDisableClientCaching(true);
+  map.addLayer(reloLayer);
+
+  var reloLayerFL = new FeatureLayer("http://www2.graniteschools.org/ArcGIS/rest/services/Relos/FeatureServer/1", {
     mode: FeatureLayer.MODE_SELECTION,
     id: "Relo_Num",
     outFields: ["Relo_Num", "Sch_Name", "Description", "Manufacturer", "Year_Built", "Sq_Feet", "Size", "Notes"]
